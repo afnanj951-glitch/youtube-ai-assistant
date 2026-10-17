@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube AI Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: 25px auto;
+      padding: 16px;
+      background: #f4f6fb;
+    }
+    h1 { color: #d62828; }
+    input, select, button, textarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    button {
+      background: #d62828;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+    }
+    .result {
+      white-space: pre-wrap;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube AI Assistant</h1>
+  <p>Apni video ka topic likhein.</p>
+
+  <input id="topic" placeholder="Example: 5 Free AI Tools">
+  <select id="language">
+    <option>Roman Urdu</option>
+    <option>English</option>
+    <option>Urdu</option>
+  </select>
+
+  <button onclick="generate()">Create Content</button>
+  <div id="result" class="result"></div>
+
+  <script>
+    function generate() {
+      const topic = document.getElementById("topic").value.trim();
+      const language = document.getElementById("language").value;
+      const result = document.getElementById("result");
+
+      if (!topic) {
+        result.textContent = "Pehle video ka topic likhein.";
+        return;
+      }
+
+      result.textContent =
+        "TOPIC: " + topic +
+        "\n\nLANGUAGE: " + language +
+        "\n\nTITLE IDEAS:\n" +
+        "1. " + topic + " | Complete Guide\n" +
+        "2. " + topic + " - Beginners Ke Liye\n" +
+        "3. " + topic + " Ki Haqeeqat\n" +
+        "4. " + topic + " Step by Step\n" +
+        "5. " + topic + " Explained\n\n" +
+        "SCRIPT OUTLINE:\n" +
+        "Hook: " + topic + " kyun important hai?\n" +
+        "Introduction: Aaj hum is topic ko samjhenge.\n" +
+        "Main points: 3 important points explain karein.\n" +
+        "Conclusion: Video ka short summary dein.\n\n" +
+        "DESCRIPTION:\n" + topic +
+        " ke bare mein is video mein seekhein.\n\n" +
+        "HASHTAGS:\n#YouTube #AI #Tutorial\n\n" +
+        "THUMBNAIL IDEA:\nTopic ke mutabiq clear text aur relevant image.";
+    }
+  </script>
+</body>
+</html>
